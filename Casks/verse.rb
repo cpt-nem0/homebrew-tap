@@ -7,7 +7,7 @@ cask "verse" do
   desc "Time-synced lyrics in a floating, draggable glass pill"
   homepage "https://cpt-nem0.github.io/verse/"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Verse.app"
 
