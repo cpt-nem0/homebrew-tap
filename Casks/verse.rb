@@ -6,19 +6,23 @@ cask "verse" do
       verified: "github.com/cpt-nem0/verse/"
   name "Verse"
   desc "Time-synced lyrics in a floating, draggable glass pill"
-  homepage "https://cpt-nem0.github.io/verse/"
+  homepage "https://verse.3am.quest/"
 
   depends_on macos: :sonoma
 
   app "Verse.app"
 
-  caveats <<~EOS
-    Verse is ad-hoc signed, not notarized by Apple. If macOS Gatekeeper
-    blocks it with "Verse is damaged and can't be opened", clear the
-    quarantine flag:
-      xattr -cr /Applications/Verse.app
+  # Verse is ad-hoc signed, not notarized. Homebrew quarantines cask
+  # downloads, which would make Gatekeeper refuse to launch the app, so
+  # clear the flag after install. Delete this block if you'd rather vet
+  # the binary and clear it yourself.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/Verse.app"]
+  end
 
-    Or install with quarantine skipped from the start:
-      brew install --cask --no-quarantine verse
+  caveats <<~EOS
+    Verse launches with no Gatekeeper prompt — the install clears the
+    quarantine flag automatically (the app is ad-hoc signed, not notarized).
   EOS
 end
