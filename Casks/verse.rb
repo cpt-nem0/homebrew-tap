@@ -1,6 +1,6 @@
 cask "verse" do
-  version "2.0.4"
-  sha256 "deea9c2ab20cebe8a879c3722b171f012c67a89205aa8afc7f1003626640c5ff"
+  version "2.1.0"
+  sha256 "db2fcc124ff0449fcd8f4ac12c44f4dd3365395d87361aaa146b8093ec499510"
 
   url "https://github.com/cpt-nem0/verse/releases/download/v#{version}/Verse.zip",
       verified: "github.com/cpt-nem0/verse/"
