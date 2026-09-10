@@ -16,9 +16,11 @@ cask "verse" do
   # downloads, which would make Gatekeeper refuse to launch the app, so
   # clear the flag after install. Delete this block if you'd rather vet
   # the binary and clear it yourself.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/Verse.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-cr", "{{appdir}}/Verse.app"],
+        writable_paths: ["Verse.app"],
+        writable_base:  :appdir
   end
 
   caveats <<~EOS
