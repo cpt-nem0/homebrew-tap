@@ -1,6 +1,6 @@
 cask "plate" do
-  version "1.0.0"
-  sha256 "4aa49b4b008f4f43ab778a67321a9383e03a2ce28231c6539ea4260004f73af7"
+  version "2.0.0"
+  sha256 "5693c53189626eca6fe886af355b0fd3c5901cf10cc52bf1c569ece4419dd00f"
 
   url "https://github.com/cpt-nem0/plate/releases/download/v#{version}/Plate.zip",
       verified: "github.com/cpt-nem0/plate/"
